@@ -27,29 +27,33 @@ public class MortgageCalculatorConsole{
 	Scanner userInput = new Scanner(System.in);
 
 	System.out.println("Please enter the amount you wish to borrow: ");
-	int principal = userInput.nextInt();
+	double principal = userInput.nextDouble();
 
 	System.out.println("Please enter the duration in years: ");
-	double duration = userInput.nextInt();
+	double duration = userInput.nextDouble();
 	
 	System.out.println("Please enter the yearly interest rate: ");
-	double  annualInterestRate = userInput.nextInt();
+	double  annualInterestRate = userInput.nextDouble();
+
+	final double yearsInMonths = 12;
+	final double percentage = 0.01;
 
 	double calculatedDuration = duration * 12;
 	
 	double calculatedMonthlyInterestRate = (annualInterestRate * 0.01) / 12;
 	
-
-	double firstMonthlyMortgagePaymentCalculation = (Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration)) * calculatedMonthlyInterestRate;
 	
-	double secondMonthlyMortgagePaymentCalculation = (Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration))  - 1;
+	if(principal<0){
+	System.out.println("sorry you entered an invalid amount, try again");
+	}
+	else{
+	double monthlyMortgagePaymentCalculation = ((Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration)) * calculatedMonthlyInterestRate)
+	/((Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration))  - 1);
 	
-	double monthlyMortgagePayment = principal *(firstMonthlyMortgagePaymentCalculation / secondMonthlyMortgagePaymentCalculation);
-
-
+	double monthlyMortgagePayment = principal *(monthlyMortgagePaymentCalculation);
 
 	System.out.printf("Your monthly payment is $%.2f", monthlyMortgagePayment);
-
+	}
 
 
 	}
@@ -57,3 +61,4 @@ public class MortgageCalculatorConsole{
 
 
 }
+
