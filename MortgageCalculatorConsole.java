@@ -16,6 +16,7 @@ PSEUDO CODE:
 14. divide the result of step 12 by the result of step 13
 15. multiply the result of step 14 by the principal(step 2)
 16. display the result as the monthly mortgage payment
+17. if the user enters a principal amount less than zero, do not print result.
 */
 
 import java.util.Scanner;
@@ -27,33 +28,29 @@ public class MortgageCalculatorConsole{
 	Scanner userInput = new Scanner(System.in);
 
 	System.out.println("Please enter the amount you wish to borrow: ");
-	double principal = userInput.nextDouble();
+	int principal = userInput.nextInt();
 
 	System.out.println("Please enter the duration in years: ");
-	double duration = userInput.nextDouble();
+	double duration = userInput.nextInt();
 	
 	System.out.println("Please enter the yearly interest rate: ");
-	double  annualInterestRate = userInput.nextDouble();
-
-	final double yearsInMonths = 12;
-	final double percentage = 0.01;
+	double  annualInterestRate = userInput.nextInt();
 
 	double calculatedDuration = duration * 12;
 	
 	double calculatedMonthlyInterestRate = (annualInterestRate * 0.01) / 12;
 	
+
+	double firstMonthlyMortgagePaymentCalculation = (Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration)) * calculatedMonthlyInterestRate;
 	
-	if(principal<0){
-	System.out.println("sorry you entered an invalid amount, try again");
-	}
-	else{
-	double monthlyMortgagePaymentCalculation = ((Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration)) * calculatedMonthlyInterestRate)
-	/((Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration))  - 1);
+	double secondMonthlyMortgagePaymentCalculation = (Math.pow(calculatedMonthlyInterestRate + 1, calculatedDuration))  - 1;
 	
-	double monthlyMortgagePayment = principal *(monthlyMortgagePaymentCalculation);
+	double monthlyMortgagePayment = principal *(firstMonthlyMortgagePaymentCalculation / secondMonthlyMortgagePaymentCalculation);
+
+
 
 	System.out.printf("Your monthly payment is $%.2f", monthlyMortgagePayment);
-	}
+
 
 
 	}
@@ -61,4 +58,3 @@ public class MortgageCalculatorConsole{
 
 
 }
-
