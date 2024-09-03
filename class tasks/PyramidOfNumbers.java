@@ -2,13 +2,13 @@ public class PyramidOfNumbers{
 	public static void main(String... args){
 
 
-			for(int k = 7; k>0; --k){
-			System.out.print(k);
+			for(int count = 7; count>0; --count){
+			System.out.print(count);
 
 			
-			for(int j = 1; j<=k; j++){
+			for(int counter = 1; conter<=count; counter++){
 			
-			System.out.print(j);
+			System.out.print(counter);
 
 				}
 			
