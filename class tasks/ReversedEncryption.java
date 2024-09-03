@@ -19,20 +19,28 @@ public class ReversedEncryption{
 	thirdDigit = (fourDigits%100)/10;
 	fourthDigit = fourDigits%10;
 
-	int encryptedFirstDigit = 0;
-	int encryptedSecondDigit = 0;
-	int encryptedThirdDigit = 0;
-	int encryptedFourthDigit = 0;
+	int decryptedFirstDigit = 0;
+	int decryptedSecondDigit = 0;
+	int decryptedThirdDigit = 0;
+	int decryptedFourthDigit = 0;
 	
-	encryptedFirstDigit = (firstDigit + 7)%10;
-	encryptedSecondDigit = (secondDigit + 7)%10;
-	encryptedThirdDigit = (thirdDigit + 7)%10;
-	encryptedFourthDigit = (fourthDigit + 7)%10;
+	decryptedFirstDigit = (firstDigit - 7);
+	if (decryptedFirstDigit < 0)
+		decryptedFirstDigit += 10;
+	decryptedSecondDigit = (secondDigit - 7);
+		if (decryptedSecondDigit < 0)
+		decryptedSecondDigit += 10;
+	decryptedThirdDigit = (thirdDigit - 7);
+		if (decryptedThirdDigit < 0)
+		decryptedThirdDigit += 10;
+	decryptedFourthDigit = (fourthDigit - 7);
+		if (decryptedFourthDigit < 0)
+		decryptedFourthDigit += 10;
 
-	int encryptedNewFourDigitInteger = (encryptedThirdDigit * 1000) + (encryptedFourthDigit * 100) + (encryptedFirstDigit * 10) + encryptedFourthDigit;
+	int decryptedNewFourDigitInteger = (decryptedThirdDigit * 1000) + (decryptedFourthDigit * 100) + (decryptedFirstDigit * 10) + decryptedFourthDigit;
 
 
-System.out.println("Encrypted four-digit integer = " + reverse(encryptedNewFourDigitInteger));
+System.out.println("Decrypted four-digit integer = " + decryptedNewFourDigitInteger);
 
 
 	}
