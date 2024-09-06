@@ -8,7 +8,7 @@ public class SquareRootOfADouble{
 		System.out.println("Enter a positive double value: ");
 		double number = userInput.nextDouble();
 	
-		System.out.println("The square root of " + number + " " + "is" + " " + number*number);
+		System.out.println("The square root of " + number + " " + "is" + " " + Math.sqrt(number));
 
 
 		}
