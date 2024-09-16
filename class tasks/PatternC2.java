@@ -4,7 +4,7 @@ public class PatternC2{
 
 
 
-public static void printStar(){
+	public static void printStar(){
 		System.out.print("* ");
 	}
 

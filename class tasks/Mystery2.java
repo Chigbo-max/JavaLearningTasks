@@ -1,4 +1,4 @@
-// Exercise 4.25: Mystery2.java
+Exercise 4.25: Mystery2.java
 public class Mystery2 {
 public static void main(String[] args) {
 int count = 1;

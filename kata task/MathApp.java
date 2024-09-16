@@ -91,43 +91,6 @@ public class MathApp{
 
 		}
 
-
-	//int preferredNumber = userInput.nextInt();
-	
-	//Kata.math(preferredNumber);
-	
-	//System.out.println(Kata.displayIsEven(preferredNumber));
-
-	//public static void even(int choice){
-	//boolean result = displayIsEven(choice);
-
-		//}
-
-
-	
-	
-	/*System.out.println(Kata.displayIsPrimeNumber(result));
-
-	;
-
-	System.out.println(Kata.displayIsEven(result));
-
-	
-	System.out.println(Kata.displayFactorOf(result));
-
-	System.out.println(Kata.factorialOf(result));
-
-	
-	System.out.println("Enter firstNumber: ");
-
-	int result1 = userInput.nextInt();
-
-	System.out.println("Enter second number: ");
-
-	int result2 = userInput.nextInt();
-
-	System.out.println(Kata.subtract(result1, result2));
-	*/
 	
 	}
 
