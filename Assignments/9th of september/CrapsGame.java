@@ -25,7 +25,7 @@ while(wager > bankBalance || wager <= 0){
 
 	sumOfDice = gameOfCraps();
 	System.out.println("You're up big. Now's the time");
-}
+		}
 	}
 
 	if(sumOfDice == 7 || sumOfDice == 11){
