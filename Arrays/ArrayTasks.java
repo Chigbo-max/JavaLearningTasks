@@ -135,3 +135,21 @@ import java.util.*;
 
 
 }
+
+
+
+
+public static String displayPalindrome(String letters){
+
+char[] character = letters.toCharArray();
+
+for(int index = 0; index <= character.length; index++){
+	character[index] = character[character.length - index - 1];
+	}
+	String reverse = new String(character);
+	if(letters.equals(reverse))System.out.print("Number is a palindrome");
+System.out.print("Number is not a palindrome");
+
+	return reverse;
+
+}
