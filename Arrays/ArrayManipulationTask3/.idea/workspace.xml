@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d555b886-6075-4073-ba63-8476bb959497" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/myDailyCodingPractice.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/src/codingChallenge/ArrayChallengeTask1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/test/codingChallenge/ArrayChallengeTask1Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../myDailyCodingPractice/test/codingChallenge/MyDailyCodingChallengesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arrays/TickTackToe.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Arrays/TickTackToe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arrays/TickTackToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Arrays/TickTackToe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/9th of september/beautifying string/BeautifiedString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/9th of september/beautifying string/BeautifiedString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/9th of september/craps game/CrapsGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/9th of september/craps game/CrapsGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/second assignment block/PhoneNumbers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/second assignment block/PhoneNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/second assignment block/PhoneNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/second assignment block/presentation/PalindromeAndReverse.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/second assignment block/presentation/PalindromeAndReverse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/second assignment block/presentation/PalindromeAndReverse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/second assignment block/presentation/PalindromeAndReverse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignments/second assignment block/presentation/SortedNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignments/second assignment block/presentation/SortedNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NumberSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NumberSorting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pattern/PatternTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Pattern/PatternTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Phase Gate One/SentenceReverseTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Phase Gate One/SentenceReverseTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SentenceReverseTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SentenceReverseTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/StudentGrades.class" beforeDir="false" afterPath="$PROJECT_DIR$/../class tasks/StudentGrades.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/StudentGrades.java" beforeDir="false" afterPath="$PROJECT_DIR$/../class tasks/StudentGrades.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/TwoLargestNumbers.class" beforeDir="false" afterPath="$PROJECT_DIR$/../class tasks/TwoLargestNumbers.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/TwoLargestNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../class tasks/TwoLargestNumbers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/import java.util.Scanner;.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/integer)" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../class tasks/public class TaskThree{.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../self tasks/StringsSorting.class" beforeDir="false" afterPath="$PROJECT_DIR$/../self tasks/StringsSorting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../self tasks/StringsSorting.java" beforeDir="false" afterPath="$PROJECT_DIR$/../self tasks/StringsSorting.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2omtjrFLD7aK0QFaZT1jkNSC8BM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/DELL USER/Documents/JavaLearning/ArrayManipulationTask3/src/Main.java",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL USER\Documents\JavaLearning\ArrayManipulationTask3\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="test" />
+      <recent name="ArrayTask" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d555b886-6075-4073-ba63-8476bb959497" name="Changes" comment="" />
+      <created>1731486723463</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731486723463</updated>
+      <workItem from="1731486724522" duration="1715000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
