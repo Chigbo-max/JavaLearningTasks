@@ -22,6 +22,7 @@ public class Queues {
 
 
     public int enqueue(int number) {
+        if(isFull()){throw new IllegalArgumentException("Queue is full");};
         return this.queue[this.count++] = number;
     }
 
@@ -48,5 +49,9 @@ public class Queues {
     public int front() {
         value = this.queue[0];
         return value;
+    }
+
+    private boolean isFull(){
+        return count == size;
     }
 }

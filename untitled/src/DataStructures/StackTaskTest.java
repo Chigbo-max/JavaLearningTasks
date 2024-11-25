@@ -1,14 +1,23 @@
 package DataStructures;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackTaskTest {
-    
+
+
+    Stacks stack;
+
+    @BeforeEach
+    public void startEachTestWithThis() {
+        stack = new Stacks(3);
+    }
+
+
     @Test
     public void testThatStackPushesElementsToStack() {
-        Stacks stack = new Stacks(3);
         assertFalse(stack.isEmpty());
         stack.push(5);
         stack.push(12);
@@ -19,7 +28,6 @@ public class StackTaskTest {
 
     @Test
     public void testThatStackPopElementsFromStack() {
-        Stacks stack = new Stacks(3);
         assertFalse(stack.isEmpty());
         stack.push(5);
         stack.push(12);
@@ -35,7 +43,6 @@ public class StackTaskTest {
 
     @Test
     public void testThatStackDisplayTheMostRecentPushed() {
-        Stacks stack = new Stacks(3);
         assertFalse(stack.isEmpty());
         stack.push(5);
         stack.push(12);
@@ -47,6 +54,14 @@ public class StackTaskTest {
         assertEquals(expect2, stack.getValue());
     }
 
+    @Test
+    public void testThatFunctionThrowsErrorWhenStackIsFull(){
+        stack.push(5);
+        stack.push(12);
+        stack.push(20);
+        assertThrows(IllegalArgumentException.class, () -> {stack.push(25);});
+
+    }
 
 
 

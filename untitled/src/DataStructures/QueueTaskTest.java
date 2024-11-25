@@ -1,14 +1,22 @@
 package DataStructures;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QueueTaskTest {
 
+    Queues queue;
+
+    @BeforeEach
+    public void startEachTestWithThis() {
+        queue = new Queues(3);
+    }
+
     @Test
     public void testThatFunctionEnqueuesElementsToAQueue() {
-        Queues queue = new Queues(3);
         assertFalse(queue.isEmpty());
         queue.enqueue(2);
         queue.enqueue(5);
@@ -18,7 +26,6 @@ public class QueueTaskTest {
 
     @Test
     public void testThatFunctionDequeuesElementsFromAQueue() {
-        Queues queue = new Queues(3);
         assertFalse(queue.isEmpty());
         queue.enqueue(2);
         queue.enqueue(5);
@@ -32,7 +39,6 @@ public class QueueTaskTest {
 
     @Test
     public void testThatFunctionDisplaysMostRecentDequeuedElement() {
-        Queues queue = new Queues(3);
         assertFalse(queue.isEmpty());
         queue.enqueue(2);
         queue.enqueue(5);
@@ -42,6 +48,14 @@ public class QueueTaskTest {
         int expected = 2;
         assertEquals(expected, queue.getValue());
 
+    }
+
+    @Test
+    public void testThatAnExeptionIsThrownWhenQueueIsFull(){
+        queue.enqueue(2);
+        queue.enqueue(5);
+        queue.enqueue(8);
+        assertThrows(IllegalArgumentException.class, ()->{queue.enqueue(22);});
     }
 
 

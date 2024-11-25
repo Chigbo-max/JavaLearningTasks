@@ -23,6 +23,7 @@ public class Stacks {
 
 
     public void push(int number) {
+        if(isFull()) {throw new IllegalArgumentException("Stack is full");}
         this.stack[this.count++] = number;
     }
 
@@ -49,5 +50,9 @@ public class Stacks {
     public int peek() {
         this.value = this.stack[this.count - 1];
         return this.value;
+    }
+
+    private boolean isFull() {
+        return this.size == count;
     }
 }
