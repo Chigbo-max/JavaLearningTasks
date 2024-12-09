@@ -4,10 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
+    Cbn cbn = new Cbn();
     List<Account> accounts = new ArrayList<Account>();
     private int accountNumber;
+    private int id;
+    private String name;
 //    private int numberOfAccounts;
 //    private double balance;
+
+    public Bank(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public Bank() {
+
+    }
 
     public Account createAccount(String firstName, String lastName, String pin) {
         accountNumber++;
@@ -18,6 +30,14 @@ public class Bank {
         Account newAccount = new Account(name, pin, accountNumber);
         accounts.add(newAccount);
         return newAccount;
+    }
+
+    public int getBankId() {
+        return id;
+    }
+
+    public String getBankName(){
+        return name;
     }
 
     public int getAccountNumber() {
@@ -58,6 +78,7 @@ public class Bank {
         validateAccount(accountNumber);
         return accounts.get(accountNumber - 1);
     }
+
 
     private void validateAccount(int accountNumber) {
         if (accountNumber < 1 || accountNumber > accounts.size()) {
