@@ -9,8 +9,7 @@ public class Bank {
     private int accountNumber;
     private int id;
     private String name;
-//    private int numberOfAccounts;
-//    private double balance;
+
 
     public Bank(String name, int id) {
         this.name = name;
@@ -23,10 +22,7 @@ public class Bank {
 
     public Account createAccount(String firstName, String lastName, String pin) {
         accountNumber++;
-//        numberOfAccounts++;
         String name = firstName + " " + lastName;
-//        int accountNumber = numberOfAccounts;
-//        String accountNumber = Integer.toString(numberOfAccounts);
         Account newAccount = new Account(name, pin, accountNumber);
         accounts.add(newAccount);
         return newAccount;
@@ -44,9 +40,6 @@ public class Bank {
         return accountNumber;
     }
 
-//    public int getNumberOfAccounts() {
-//        return numberOfAccounts;
-//    }
 
     public void deposit(int accountNumber, double amount) {
         Account account = findAccount(accountNumber);
@@ -68,7 +61,6 @@ public class Bank {
         Account sender = findAccount(senderAccount);
         Account recipient = findAccount(recipientAccount);
         validatePin(pin, sender);
-//        sender.deposit(amount);
         recipient.deposit(amount);
         sender.withdraw(amount, pin);
     }

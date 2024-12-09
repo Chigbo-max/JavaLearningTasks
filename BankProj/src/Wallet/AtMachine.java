@@ -164,27 +164,30 @@ public class AtMachine {
     }
 
     public static void transferToOtherBank() {
-        display("Enter sender-bank number");
-        int sendingBankId = selectBank();
-        Bank sendingBank = cbn.findBank(sendingBankId);
-        if (sendingBank == null) {
-            throw new IllegalArgumentException("Account not found");
+
+            display("Enter sender-bank number");
+            int sendingBankId = selectBank();
+            Bank sendingBank = cbn.findBank(sendingBankId);
+
+            display("Enter the recipient-bank number");
+            int receivingBankId = selectBank();
+            Bank receivingBank = cbn.findBank(receivingBankId);
+
+            int senderAccountNumber = collectIntegerInput("Enter sender account number");
+            int receiverNumber = collectIntegerInput("Enter account number of recipient");
+
+            double amount = collectDoubleInput("Enter amount to transfer");
+        try {
+            String pin = input("Enter pin");
+
+            cbn.transfer(sendingBankId, receivingBankId, senderAccountNumber, receiverNumber, amount, pin);
+            display("transfer from" + sendingBank.getBankName() + " " + "to" + receivingBank.getBankName() + " " + "was successful");
+        }catch (IllegalArgumentException e) {
+            display("invalid credentials");
         }
-
-        display("Enter the recipient-bank number");
-        int receivingBankId = selectBank();
-        Bank receivingBank = cbn.findBank(receivingBankId);
-
-        int senderAccountNumber = collectIntegerInput("Enter sender account number");
-        int receiverNumber = collectIntegerInput("Enter account number of recipient");
-
-        double amount = collectDoubleInput("Enter amount to transfer");
-
-        String pin = input("Enter pin");
-
-        cbn.transfer(sendingBankId, receivingBankId, senderAccountNumber, receiverNumber, amount, pin);
-        display("transfer from" + receivingBank.getBankName() + " " + "was successful");
-        goToMainMenu();
+        finally{
+            goToMainMenu();
+        }
    }
 
     private static int selectBank(){

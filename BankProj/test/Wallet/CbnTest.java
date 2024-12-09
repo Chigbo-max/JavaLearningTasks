@@ -51,6 +51,7 @@ public class CbnTest {
         IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, ()->cbn.findBank(3));
         assertEquals("Bank does not exist", illegalArgumentException.getMessage());
     }
-    
+
+
 
 }
