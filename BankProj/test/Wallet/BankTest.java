@@ -10,7 +10,7 @@ class BankTest {
         Bank bank = new Bank();
         Account account1 = bank.createAccount("Awele", "Ada", "correctPin");
         Account account2 = bank.createAccount("Ebenezer", "Ada", "sharpGuy");
-        assertEquals(2, account2.getNumber());
+        assertEquals("0000014597", account2.getNumber());
     }
 
     @Test
@@ -75,7 +75,14 @@ class BankTest {
         account1.withdraw(4000, "correctPin");
         assertEquals(1000, bank.getBalance(1,"correctPin"));
 
+    }
 
+    @Test
+    public void testGenerateAccountNumber(){
+        Bank bank = new Bank();
+        System.out.print(bank.getBankId());
+        Account account = bank.createAccount("Awele", "Ada", "correctPin");
+        System.out.print(account.getNumber());
 
     }
 

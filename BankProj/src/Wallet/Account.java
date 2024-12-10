@@ -4,16 +4,16 @@ public class Account {
     private double balance;
     private String name;
     private String pin;
-    private int number;
+    private long number;
 
-    public Account(String name, String pin, int number) {
+    public Account(String name, String pin, long number) {
         this.name = name;
         this.pin = pin;
         this.number = number;
         this.balance = balance;
     }
 
-    public int getNumber() {
+    public long getNumber() {
         return number;
     }
 

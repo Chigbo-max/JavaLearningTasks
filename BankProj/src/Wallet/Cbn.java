@@ -20,7 +20,7 @@ public class Cbn {
         return bankNumber;
     }
 
-    public void transfer(int senderBankId, int receiverBankId, int senderAccountNumber, int receiverAccountNumber, Double amount, String pin){
+    public void transfer(int senderBankId, int receiverBankId, long senderAccountNumber, long receiverAccountNumber, Double amount, String pin){
         Bank sendingBank = findBank(senderBankId);
         Bank receivingBank = findBank(receiverBankId);
 
