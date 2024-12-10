@@ -52,25 +52,25 @@ public class AtMachine {
     public static String input(String prompt) {
         display(prompt);
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
 
     public static void createAccount() {
         try {
-
             int bankId = selectBank();
             Bank foundBank = cbn.findBank(bankId);
 
             String firstName = input("Enter first name: ");
             String lastName = input("Enter last name: ");
             String password = input("Enter password: ");
+
             var account = foundBank.createAccount(firstName, lastName, password);
             display("Account created");
             display(String.format("Your account number is %d", account.getNumber()));
-        }
-        catch (Exception e) {
-            display(e.getMessage());
+       }
+       catch (Exception e) {
+            display("Invalid credentials");
         }
         finally {
             goToMainMenu();
@@ -83,7 +83,7 @@ public class AtMachine {
         Bank foundBank = cbn.findBank(bankId);
 
         double amount = collectDoubleInput("Enter amount");
-        int accountNumber = collectIntegerInput("Enter account number: ");
+        long accountNumber = collectLongInput("Enter account number: ");
         try {
             foundBank.deposit(accountNumber, amount);
             display("Deposited " + amount + " to account number " + accountNumber);
@@ -102,7 +102,7 @@ public class AtMachine {
         int bankId = selectBank();
         Bank foundBank = cbn.findBank(bankId);
 
-        int accountNumber = collectIntegerInput("Enter account number");
+        long accountNumber = collectLongInput("Enter account number");
         double amount = collectDoubleInput("Enter amount to withdraw");
         try {
             String pin = input("Enter pin");
@@ -123,8 +123,8 @@ public class AtMachine {
         int bankId = selectBank();
         Bank foundBank = cbn.findBank(bankId);
 
-        int sender = collectIntegerInput("Enter sender number");
-        int receiver = collectIntegerInput("Enter receiver number");
+        long sender = collectLongInput("Enter sender number");
+        long receiver = collectLongInput("Enter receiver number");
         double amount = collectDoubleInput("Enter amount to transfer");
         try {
             String pin = input("Enter pin");
@@ -146,7 +146,7 @@ public class AtMachine {
             int bankId = selectBank();
             Bank foundBank = cbn.findBank(bankId);
 
-            int accountNumber = collectIntegerInput("Enter account number");
+            long accountNumber = collectLongInput("Enter account number");
             String pin = input("Enter pin");
             display(String.format("balance is %.2f", foundBank.getBalance(accountNumber, pin)));
         } catch(IllegalArgumentException e) {
@@ -173,15 +173,15 @@ public class AtMachine {
             int receivingBankId = selectBank();
             Bank receivingBank = cbn.findBank(receivingBankId);
 
-            int senderAccountNumber = collectIntegerInput("Enter sender account number");
-            int receiverNumber = collectIntegerInput("Enter account number of recipient");
+            long senderAccountNumber = collectLongInput("Enter sender account number");
+            long receiverNumber = collectLongInput("Enter account number of recipient");
 
             double amount = collectDoubleInput("Enter amount to transfer");
         try {
             String pin = input("Enter pin");
 
             cbn.transfer(sendingBankId, receivingBankId, senderAccountNumber, receiverNumber, amount, pin);
-            display("transfer from" + sendingBank.getBankName() + " " + "to" + receivingBank.getBankName() + " " + "was successful");
+            display("transfer from" + " " + senderAccountNumber + "(" + sendingBank.getBankName() + ")" + " " + "to" + " "+ receiverNumber + "(" + receivingBank.getBankName() + ")" + " " + "was successful");
         }catch (IllegalArgumentException e) {
             display("invalid credentials");
         }
@@ -206,6 +206,16 @@ public class AtMachine {
             display("Invalid input");
         }
         return collectIntegerInput(prompt);
+    }
+
+    private static Long collectLongInput(String prompt) {
+        try {
+            return Long.parseLong(input(prompt));
+        }
+        catch (NumberFormatException e) {
+            display("Invalid input");
+        }
+        return collectLongInput(prompt);
     }
 
 
