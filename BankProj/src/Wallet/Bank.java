@@ -76,7 +76,7 @@ public class Bank {
     }
 
     public void withdraw(long accountNumber, double amount, String pin) {
-       Account account =  findAccount(accountNumber);
+        Account account =  findAccount(accountNumber);
         validatePin(pin, account);
         account.withdraw(amount, pin);
     }

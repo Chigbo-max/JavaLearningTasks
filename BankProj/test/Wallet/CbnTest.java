@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CbnTest {
     @Test
     public void createBank_getNumberOfBanks(){
+
         Cbn cbn = new Cbn();
       Bank fidelityBank = cbn.registerBank("Fidelity Bank");
       Bank fcmb = cbn.registerBank("fcmb");

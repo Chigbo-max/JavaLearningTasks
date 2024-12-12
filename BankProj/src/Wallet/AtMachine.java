@@ -7,7 +7,6 @@ import static java.lang.System.exit;
 
 public class AtMachine {
 
-    private static Bank bank = new Bank();
     private static Cbn cbn = new Cbn();
 
     public static void main(String[] args) {

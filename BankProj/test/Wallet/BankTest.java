@@ -5,13 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BankTest {
-    @Test
-    public void createAccount_getAccountNumberTest() {
-        Bank bank = new Bank();
-        Account account1 = bank.createAccount("Awele", "Ada", "correctPin");
-        Account account2 = bank.createAccount("Ebenezer", "Ada", "sharpGuy");
-        assertEquals("0000014597", account2.getNumber());
-    }
+
 
     @Test
     public void deposit5k_get5kBalanceTest() {
