@@ -36,18 +36,12 @@ public class AtMachine {
         display("Enter a number: ");
         char userInput = input(mainMenu).charAt(0);
 
-        switch (userInput) {
-            case '1': createAccount(); break;
-            case '2': deposit(); break;
-            case '3': withdraw(); break;
-            case '4': transfer(); break;
-            case '5': transferToOtherBank(); break;
-            case '6': checkAccountBalance(); break;
-            case '7': exitApp(); break;
-            default: display("Invalid number"); goToMainMenu();
-        }
+        getUserInput(userInput);
 
     }
+
+
+
     public static String input(String prompt) {
         display(prompt);
         Scanner scanner = new Scanner(System.in);
@@ -188,6 +182,20 @@ public class AtMachine {
             goToMainMenu();
         }
    }
+
+
+    private static void getUserInput(char userInput) {
+        switch (userInput) {
+            case '1': createAccount(); break;
+            case '2': deposit(); break;
+            case '3': withdraw(); break;
+            case '4': transfer(); break;
+            case '5': transferToOtherBank(); break;
+            case '6': checkAccountBalance(); break;
+            case '7': exitApp(); break;
+            default: display("Invalid number"); goToMainMenu();
+        }
+    }
 
     private static int selectBank(){
         for(Bank bank : cbn.banks){

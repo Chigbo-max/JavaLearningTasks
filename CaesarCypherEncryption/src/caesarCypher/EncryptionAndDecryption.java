@@ -3,14 +3,6 @@ package caesarCypher;
 public class EncryptionAndDecryption {
 
 
-    public static int getValueOf5Modulus26(int key) {
-        int result = 0;
-        if(key < 26)
-            return key;
-        result = key % 26;
-        return result;
-    }
-
     public int[] getValueOfCharacter(String plainText) {
         int[] result = new int[plainText.length()];
         for(int index = 0; index < plainText.length(); index++) {
@@ -23,12 +15,7 @@ public class EncryptionAndDecryption {
         return result;
     }
 
-    private static void validateCharacter(char character) {
-        if(!Character.isLetter(character)) {
-            throw new IllegalArgumentException("Invalid character");
-        }
 
-    }
 
     public int[] getEncryptedModulusValueForEachCharacter(String plainText) {
         int[] characterValues = getValueOfCharacter(plainText);
@@ -40,12 +27,7 @@ public class EncryptionAndDecryption {
         return modulusValue;
     }
 
-    private static void validateEncryptedModulusValue(int[] characterValues, int index, int key, int[] modulusValue) {
-        if((characterValues[index] + key)  < 26)
-            modulusValue[index] = characterValues[index] + key;
 
-        modulusValue[index] = (characterValues[index] + key) % 26;
-    }
 
 
     public char[] getEncryptedResult(String plainText) {
@@ -63,12 +45,37 @@ public class EncryptionAndDecryption {
         int[] decryptedModulusValues = new int[characterValues.length];
         int key = 3;
         for(int index = 0; index < decryptedModulusValues.length; index++) {
-            validateEncryptionModulusValue(characterValues, index, key, decryptedModulusValues);
+            validateDecryptionModulusValue(characterValues, index, key, decryptedModulusValues);
         }
         return decryptedModulusValues;
     }
 
-    private static void validateEncryptionModulusValue(int[] characterValues, int index, int key, int[] decryptedModulusValues) {
+
+    public char[] getDecryptedResult(String plainText) {
+        int[] decryptedModulusValues = getDecryptedModulusValueForEachCharacter(plainText);
+        char[] decryptedValues = new char[decryptedModulusValues.length];
+
+        for(int index = 0; index < decryptedValues.length; index++) {
+            decryptedValues[index] = (char) (decryptedModulusValues[index] + 'a');
+        }
+        return decryptedValues;
+    }
+
+    private static void validateCharacter(char character) {
+        if(!Character.isLetter(character)) {
+            throw new IllegalArgumentException("Invalid character");
+        }
+    }
+
+    private static void validateEncryptedModulusValue(int[] characterValues, int index, int key, int[] modulusValue) {
+        int value = characterValues[index] + key;
+        if((value)  < 26)
+            modulusValue[index] = value;
+
+        modulusValue[index] = (value) % 26;
+    }
+
+    private static void validateDecryptionModulusValue(int[] characterValues, int index, int key, int[] decryptedModulusValues) {
         int decryptionValue = characterValues[index] - key;
 
         if(decryptionValue  < 26 && characterValues[index] >= key){
@@ -82,12 +89,4 @@ public class EncryptionAndDecryption {
         }
     }
 
-    public char[] getDecryptedResult(String plainText) {
-        int[] decryptedModulusValues = getDecryptedModulusValueForEachCharacter(plainText);
-        char[] decryptedValues = new char[decryptedModulusValues.length];
-        for(int index = 0; index < decryptedValues.length; index++) {
-            decryptedValues[index] = (char) (decryptedModulusValues[index] + 'a');
-        }
-        return decryptedValues;
-    }
 }
