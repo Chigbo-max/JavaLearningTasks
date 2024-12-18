@@ -89,28 +89,6 @@ public class ElectoralBody {
         return CandidateIdList;
     }
 
-//    public boolean isVoterRegistered(long voterId) {
-//        for (Voter voter : voterList) {
-//            if(voter.getVoterId() == voterId){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
-//    public boolean isCandidateRegistered(int candidateId) {
-//        for (Candidate candidate : candidateList) {
-//            if(candidate.getId() == candidateId ){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
-
-
-
-
 
 
 }
