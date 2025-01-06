@@ -14,21 +14,16 @@ public class CompoundInterestCalculator {
         int compoundFrequency = collectIntegerInput("Enter compound frequency: ");
         int time = collectIntegerInput("Enter number of years: ");
         double monthlyContribution = collectDoubleInput("Enter monthly contribution: ");
-        double interestFactorResult = getInterestFactorResult(interestRate, compoundFrequency, time);
-        double compoundInterest = interestFactorResult * principal;
-        double denominator = interestRate/compoundFrequency;
-        double interestFactorFromContribution = (interestFactorResult - 1) / denominator;
-        double contributionCompoundInterest = monthlyContribution * interestFactorFromContribution;
-        double totalAmount = compoundInterest + contributionCompoundInterest;
+
+        double interestFactorResult = Calculation.getInterestFactorResult(interestRate, compoundFrequency, time);
+        double contributionCompoundInterest = monthlyContribution * Calculation.getInterestFactorFromContribution(interestRate,compoundFrequency,time);
+        double totalAmount = Calculation.getCompoundInterest(interestFactorResult, principal) + contributionCompoundInterest;
+
         display(String.format("The final amount after %d years with $%,.2f contributions is $%,.2f", time, monthlyContribution, totalAmount ));
 
     }
 
-    private static double getInterestFactorResult(double interestRate, int compoundFrequency, int time) {
-        double interestFactor = 1 + (interestRate / compoundFrequency);
-        double interestFactorResult = Math.pow( interestFactor, compoundFrequency * time);
-        return interestFactorResult;
-    }
+
 
     private static void display(String message){
         System.out.println(message);
