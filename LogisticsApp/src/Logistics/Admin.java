@@ -7,7 +7,22 @@ import java.util.Random;
 public class Admin {
 
     List<Driver> drivers = new ArrayList<>();
-    List<Customer> customers = new ArrayList<>();
+    List<Package> packages = new ArrayList<>();
+
+    public Package registerPackage(String receiverName, String receiverAddress, String receiverPhoneNumber, String senderName) {
+        String trackingId = "CC" + generateTrackingId();
+        Recipient receiver = new Recipient(receiverName, receiverAddress, receiverPhoneNumber);
+        Package newPackage = new Package(trackingId, receiver, senderName);
+        packages.add(newPackage);
+        return newPackage;
+    }
+
+    private long generateTrackingId(){
+        Random rand = new Random();
+        long id = Math.abs(rand.nextLong() % 999_999_999);
+        return id;
+    }
+
 
     public Driver createDriver(String firstName, String lastName, String address, String drivingLicenseNo, String phone, String password) {
         String name = firstName + " " + lastName;
@@ -23,20 +38,6 @@ public class Admin {
         return id;
     }
 
-    public Customer createCustomer(String firstName, String lastName, String address, String phone, String password) {
-        String name = firstName + " " + lastName;
-        String id = "CC" + generateCustomerId();
-        Customer newCustomer = new Customer(name, address, phone, id, password);
-        customers.add(newCustomer);
-        return newCustomer;
-    }
-
-    private long generateCustomerId(){
-        Random rand = new Random();
-        long id = Math.abs(rand.nextLong() % 999_999_999);
-        return id;
-    }
-
     public String findDriverId(String id) {
         for(Driver driver : drivers) {
             if(driver.getId().equals(id)) {
@@ -46,10 +47,10 @@ public class Admin {
         throw new IllegalArgumentException("Driver id does not match");
     }
 
-    public String findCustomerId(String id) {
-        for(Customer customer : customers) {
-            if(customer.getId().equals(id)) {
-                return customer.getId();
+    public String findTrackingNumber(String id) {
+        for(Package parcel : packages) {
+            if(parcel.getTrackingNumber().equals(id)) {
+                return parcel.getTrackingNumber();
             }
         }
         throw new IllegalArgumentException("Id does not match");
