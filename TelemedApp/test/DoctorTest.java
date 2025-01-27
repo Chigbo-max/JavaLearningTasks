@@ -22,5 +22,18 @@ public class DoctorTest {
         Doctor doctor = new Doctor("willy", "090456789999", "12345", "General Doc");
         IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, () -> doctor.findPatient("12345"));
         assertEquals(illegalArgumentException.getMessage(), "Patient not found");
+
+    }
+
+    @Test
+    public void testThatDoctorCanCancel_AnAppointment() {
+        DoctorRegistrationPortal newRegistration = new DoctorRegistrationPortal();
+        Doctor doctor = newRegistration.registerDoctor("ade", "wills", "09012312345", "General Surgeon");
+        Patient patient2 = new Patient("ade", "09023456789", "11112");
+        patient2.bookAppointment("22-02-2025", "5:00 PM", "General Surgeon", "aaaa");
+        doctor.cancelAppointment(patient2.getID());
+        assertEquals(doctor.getAppointments().size(), 0);
+
+
     }
 }

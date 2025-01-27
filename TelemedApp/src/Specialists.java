@@ -26,7 +26,7 @@ public enum Specialists {
                 }
             }
         }
-        throw new IllegalArgumentException("Specialist is not found, please check the list of available specialists properly");
+        throw new IllegalSpecialty("Specialist is not found, please check the list of available specialists properly");
     }
 
     public static String displaySpecialists() {

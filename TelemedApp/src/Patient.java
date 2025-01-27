@@ -1,13 +1,18 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Patient {
+public class Patient extends User {
     private String name;
-    protected String phone;
+    private String phone;
     private String id;
     private List<Appointment> appointments;
 
     public Patient(String name,String phone, String id) {
+        super(name, phone, id);
         this.name = name;
         this.phone = phone;
         this.id = id;
@@ -25,33 +30,58 @@ public class Patient {
         return phone;
     }
 
-    public void validatePhone(String phone) {
-        if(phone.length() != 11) {
-            throw new IllegalPhoneNumber("Phone number must be 11 digits");
-        }
-        this.phone = phone;
-    }
 
-    public static String findSpecialist(String specialist){
-        return Specialists.findSpecialist(specialist);
-    }
-
+    @Override
     public List<Appointment> getAppointments() {
         return appointments;
     }
 
-    public void bookAppointment(String time, String specialist, String description){
+    public void bookAppointment(String dateInput, String timeInput, String specialist, String description){
 
-        if(!findSpecialist(specialist).equalsIgnoreCase(specialist)) {
-            throw new IllegalSpecialty("Specialist not found, please check the list of available specialists");
-        }
+        LocalDateTime today = LocalDateTime.now();
+        LocalDateTime appointmentDateAndTime = convertDateAndTimeString(dateInput, timeInput);
+        LocalDateTime maximumValidDate = today.plusDays(30);
+        Specialists.findSpecialist(specialist);
+        validateTimeAndDateExtent(appointmentDateAndTime, today, maximumValidDate);
+        Doctor doctor = validateDoctorAvailability(specialist);
+        Appointment appointment = new Appointment(dateInput, timeInput, specialist, description, this.getID());
+        appointments.add(appointment);
+        doctor.addAppointment(appointment);
+        doctor.setBookedTime(dateInput, timeInput);
+    }
 
+    private Doctor validateDoctorAvailability(String specialist) {
         Doctor doctor = findDoctor(specialist);
-        if(doctor.isBooked(time)){
+        if(doctor.isDoctorBooked()) {
             throw new IllegalAppointmentTime("Sorry, the doctor has been booked at this time");
         }
-        Appointment appointment = new Appointment(time, specialist, description);
-        appointments.add(appointment);
+        return doctor;
+    }
+
+    private static LocalDateTime convertDateAndTimeString(String dateInput, String timeInput) {
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+
+        LocalDate localDate = LocalDate.parse(dateInput, dateFormatter);
+        LocalTime localTime = LocalTime.parse(timeInput, timeFormatter);
+
+        LocalDateTime appointmentDateAndTime = LocalDateTime.of(localDate, localTime);
+        return appointmentDateAndTime;
+    }
+
+    private static void validateTimeAndDateExtent(LocalDateTime appointmentDateAndTime, LocalDateTime today, LocalDateTime maximumValidDate) {
+        if(appointmentDateAndTime.toLocalDate().isBefore(today.toLocalDate()) || appointmentDateAndTime.isAfter(maximumValidDate)) {
+            throw new IllegalArgumentException("Date and time cannot be in the past or exceed 30days from today");
+        }
+    }
+
+    public String findDoctorName(String specialist){
+        for(Doctor doctor : DoctorRegistrationPortal.doctors){
+            if(doctor.getSpeciality().equals(specialist)){
+                return doctor.getName();
+            }
+        }
+        throw new IllegalArgumentException("Sorry, we do not have this specialist");
     }
 
     public Doctor findDoctor(String specialist){
@@ -60,7 +90,7 @@ public class Patient {
                 return doctor;
             }
         }
-        return null;
+        throw new IllegalArgumentException("Sorry, we do not have this specialist");
     }
 
 
