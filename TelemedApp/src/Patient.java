@@ -95,6 +95,8 @@ public class Patient extends User {
 
 
 
+
+
     public String toString() {
         return String.format("%s: %s%n%s: %s%n%s: %s%n", "Name", name, "Phone", phone, "Id", id);
     }
